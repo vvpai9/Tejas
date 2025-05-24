@@ -4,12 +4,12 @@ import RPi.GPIO as GPIO
 import time
 
 # GPIO setup
-TRIG = 23
-ECHO = 24
-RIGHT1 = 17  # Motor control pins
-RIGHT2 = 27
-LEFT1 = 22
-LEFT2 = 5
+TRIG = 3
+ECHO = 5
+RIGHT1 = 16  # Motor control pins
+RIGHT2 = 18
+LEFT1 = 11
+LEFT2 = 13
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(TRIG, GPIO.OUT)
