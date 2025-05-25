@@ -1,7 +1,7 @@
 # Tejas
 Bot for Human Detection, Tracking and Obstacle Avoidance for Resonance Hardware Hackathon at KLE Technological University, Dr. M S Sheshgiri Campus, Belagavi
 
-Eletronic Components Required:
+Electronic Components Required:
 1. Raspberry Pi 4 Model B+
 2. HC-SR04 Ultrasonic Sensor
 3. L298N Motor Driver
