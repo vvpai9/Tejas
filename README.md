@@ -53,5 +53,13 @@ The ```cv2``` and ```numpy``` modules should be imported into Python without any
 
 ![image](https://github.com/user-attachments/assets/3005c205-4c0d-4624-b268-88d51c5519ad)
 
+# Testing Electronic Components
+1. Hc-SR04 Ultrasonic Sensor:
+   Connect the sensor pins to the Raspberry Pi as follows:
+      TRIGGER - GPIO 18 (Pin 12)
+      ECHO - GPIO 24 (Pin 18)
+      VCC - 5V (Pin 2 or Pin 4)
+      GND - GND (Pins 6, 9, 14, 25, 30 or 34)
+
 Link for Preliminary Codes:
 https://chatgpt.com/share/68308817-e824-8002-8ce1-efbfd1d6da57
