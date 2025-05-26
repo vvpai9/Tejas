@@ -55,11 +55,61 @@ The ```cv2``` and ```numpy``` modules should be imported into Python without any
 
 # Testing Electronic Components
 1. HC-SR04 Ultrasonic Sensor: <br/>
-   Connect the sensor pins to the Raspberry Pi as follows: <br/>
-      TRIGGER - GPIO 18 (Pin 12) <br/>
-      ECHO - GPIO 24 (Pin 18) <br/>
-      VCC - 5V (Pin 2 or Pin 4) <br/>
-      GND - GND (Pins 6, 9, 14, 25, 30 or 34) <br/>
+     Connect the sensor pins to the Raspberry Pi as follows: <br/>
+          TRIGGER - GPIO 18 (Pin 12) <br/>
+          ECHO - GPIO 24 (Pin 18) <br/>
+          VCC - 5V (Pin 2 or Pin 4) <br/>
+          GND - GND (Pins 6, 9, 14, 25, 30 or 34) <br/>
 
-Link for Preliminary Codes:
-https://chatgpt.com/share/68308817-e824-8002-8ce1-efbfd1d6da57
+Run the python script ```ultra.py``` to check the sensor.
+```
+python3 ultra.py
+```
+
+2. IR Sensor:
+      Connect the sensor pins to the Raspberry Pi as follows: <br/>
+         VCC - 5V
+         GND - GND
+         OUT - GPIO 17 (Pin 11)
+
+  Run the python script ```ir.py``` to check the sensor.
+```
+python3 ir.py
+```
+
+3. DC Motors with L298N:
+     Connect the module to the Raspberry Pi as follows:
+         IN1 - GPIO 5 (Pin 29)
+         IN2 - GPIO 6 (Pin 31)
+         IN3 - GPIO 19 (Pin 35)
+         IN4 - GPIO 26 (Pin 37)
+   
+   Run the python script ```motor.py``` to check the motor driver and motors.
+```
+python3 motor.py
+```
+
+4. Raspberry Pi Camera Module rev1.3:
+      Connect the camera module to the CSI Port of the Raspberry Pi.
+   ```
+   ls /dev/video*
+   ```
+   This command should give a list of video interfaces available. Make sure that ```/dev/video0``` is listed.
+   ```
+   vcgencmd get_camera
+   ```
+   This command should show ```supported = 1 detected = 1```
+
+   ```
+   python3 picam.py
+   ```
+   Running this script should open the live camera feed from the Raspberry Pi Camera.
+
+5. ```YOLOv4-tiny``` Model:
+      Ensure that ```yolov4-tiny.cfg```, ```yolov4-tiny.weights``` and ```coco.names``` are in the same folder as all the scripts.
+   ```
+   python3 model.py
+   ```
+   This script enables person detection using the ```YOLOv4-tiny``` model on the live feed of the Raspberry Pi Camera.
+   
+   
