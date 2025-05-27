@@ -27,7 +27,7 @@ hdmi_force_hotplug=1
 hdmi_group=2
 hdmi_mode=9
 ```
-Save the file and exit the text editor (in ```nano```, you do this by pressing CTRL + X, then Y, and Enter).
+Save the file and exit the text editor (in ```nano```, you do this by pressing CTRL + X, then Y, and Enter).<br/>
 5. Run the following commands:
 ```
 sudo apt-get update
