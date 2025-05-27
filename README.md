@@ -61,33 +61,33 @@ The ```cv2``` and ```numpy``` modules should be imported into Python without any
           VCC - 5V (Pin 2 or Pin 4) <br/>
           GND - GND (Pins 6, 9, 14, 25, 30 or 34) <br/>
 
-Run the python script ```ultra.py``` to check the sensor.
-```
-python3 ultra.py
-```
+   Run the python script ```ultra.py``` to check the sensor.
+   ```
+   python3 ultra.py
+   ```
 
 2. IR Sensor:
       Connect the sensor pins to the Raspberry Pi as follows: <br/>
-         VCC - 5V
-         GND - GND
-         OUT - GPIO 17 (Pin 11)
+         VCC - 5V <br/>
+         GND - GND <br/>
+         OUT - GPIO 17 (Pin 11) <br/>
 
   Run the python script ```ir.py``` to check the sensor.
-```
-python3 ir.py
-```
+   ```
+   python3 ir.py
+   ```
 
 3. DC Motors with L298N:
-     Connect the module to the Raspberry Pi as follows:
-         IN1 - GPIO 5 (Pin 29)
-         IN2 - GPIO 6 (Pin 31)
-         IN3 - GPIO 19 (Pin 35)
-         IN4 - GPIO 26 (Pin 37)
+     Connect the module to the Raspberry Pi as follows: <br/>
+         IN1 - GPIO 5 (Pin 29) <br/>
+         IN2 - GPIO 6 (Pin 31) <br/>
+         IN3 - GPIO 19 (Pin 35) <br/>
+         IN4 - GPIO 26 (Pin 37) <br/>
    
    Run the python script ```motor.py``` to check the motor driver and motors.
-```
-python3 motor.py
-```
+   ```
+   python3 motor.py
+   ```
 
 4. Raspberry Pi Camera Module rev1.3:
       Connect the camera module to the CSI Port of the Raspberry Pi.
