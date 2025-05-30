@@ -71,7 +71,7 @@ NOTE: For optimal functionality:
 
 This ensures that the power supply to the Raspberry Pi is not throttled down during operation.
 
-Navigate to ```Test  ``` folder to find the scripts for testing electronic components
+Navigate to ```Test``` folder to find the scripts for testing electronic components
 
 1. HC-SR04 Ultrasonic Sensor: <br/>
      Connect the sensor pins to the Raspberry Pi as follows: <br/>
