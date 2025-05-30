@@ -85,13 +85,16 @@ This ensures that the power supply to the Raspberry Pi is not throttled down dur
 
 1. IR Sensors:<br/>
       Three IR Sensors are required for line following algorithm. One at the left (L), one at the centre (C) and one at the right (R). <br/> IR Sensor ouputs a ```0``` if ```black``` is detected and outputs a ```1``` if ```white``` is detected. <br/> <br/>
-      L   C   R   Action<br/>
-      0   1   0   Forward<br/>
-      0   0   1   Turn Right<br/>
-      1   0   0   Turn Left<br/>
-      1   1   0   Hard Left<br/> 
-      0   1   1   Hard Right<br/> 
-      1   1   1   Stop<br/><br/>
+      
+      | L | C | R | Action     |
+      | - | - | - | ---------- |
+      | 0 | 1 | 0 | Forward    |
+      | 0 | 0 | 1 | Turn Right |
+      | 1 | 0 | 0 | Turn Left  |
+      | 1 | 1 | 0 | Hard Left  |
+      | 0 | 1 | 1 | Hard Right |
+      | 1 | 1 | 1 | Stop       |
+
 
       Connect the sensor pins to the Raspberry Pi as follows: <br/>
          VCC - 5V <br/>
