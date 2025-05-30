@@ -1,10 +1,12 @@
 from gpiozero import DistanceSensor
-from time import sleep
+from gpiozero.pins.pigpio import PiGPIOFactory
+import time
 
-sensor = DistanceSensor(trigger=18, echo=24)
+factory = PiGPIOFactory()
+sensor = DistanceSensor(trigger=18, echo=24, pin_factory=factory)
 
 while True:
-    sleep(2)
+    time.sleep(2)
     
     # Convert to centimeters and round
     distance_cm = round(sensor.distance * 100, 2)
