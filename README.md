@@ -1,12 +1,22 @@
 # Tejas
-Bot for Human Detection, Tracking and Obstacle Avoidance for Resonance Hardware Hackathon at KLE Technological University, Dr. M. S. Sheshgiri Campus, Belagavi
+Bot for Person Detection, Tracking, Obstacle Avoidance and Line Following for Resonance 1.0 Hardware Hackathon at KLE Technological University, Dr. M. S. Sheshgiri Campus, Belagavi
 
 Electronic Components Required:
-1. Raspberry Pi 4 Model B+
-2. HC-SR04 Ultrasonic Sensor
-3. L298N Motor Driver
-4. Dual shaft DC Motors x 2
-5. Raspberry Pi Camera
+1. Raspberry Pi 4 Model B (8GB RAM recommended)
+2. Micro SD Card (Class 10 32 GB recommended)
+3. Micro SD Card Reader
+4. HC-SR04 Ultrasonic Sensor
+5. L298N Motor Driver
+6. 60 RPM DC Geared Motors x 2
+7. Raspberry Pi Camera rev1.3 or USB Webcam (USB Webcam is recommended)
+8. IR Sensors x 3
+9. 5V/3A Battery Elimination Circuit (BEC) for Raspberry Pi
+10. Power Distribution Board
+11. 12V to 5V step-down converter
+12. 3-cell Lithium Battery (11.1V - 12.6V) (3S1P LiPo 3300mAh 35C battery recommended)
+13. Micro Breadboard
+14. Jumper wires - Male to Male, Male to Female, Female to Female (15 cm) (as required)
+15. Single stranded wires (as required) 
 
 # Setting up Raspberry Pi
 1. Using 'Rasbperry Pi Imager', install Raspberry Pi OS compatible with the Raspberry Pi 4 (Recommended: Raspberry Pi OS (Debian Bullseye) Legacy 32-Bit Full with Desktop environment and recommended applications) onto the SD Card (Recommended: Class 10 32 GB Micro SD Card).
@@ -54,6 +64,13 @@ The ```cv2``` and ```numpy``` modules should be imported into Python without any
 ![image](https://github.com/user-attachments/assets/3005c205-4c0d-4624-b268-88d51c5519ad)
 
 # Testing Electronic Components
+NOTE: For optimal functionality:
+   1. Use a micro-breadboard for common VCC (5V) and GND connection for all electronic components.
+   2. Power the Raspberry Pi with 5V/3A Power supply seperately through a Battery Elimination Circuit (BEC).
+   3. Power the common 5V and GND connections on the micro-breadboard seperately using another step-down converter.
+
+This ensures that the power supply to the Raspberry Pi is not throttled down during operation.
+
 1. HC-SR04 Ultrasonic Sensor: <br/>
      Connect the sensor pins to the Raspberry Pi as follows: <br/>
           TRIGGER - GPIO 18 (Pin 12) <br/>
@@ -66,13 +83,22 @@ The ```cv2``` and ```numpy``` modules should be imported into Python without any
    python3 ultra.py
    ```
 
-2. IR Sensor:<br/>
+1. IR Sensors:<br/>
+      Three IR Sensors are required for line following algorithm. One at the left (L), one at the centre (C) and one at the right (R). <br/> IR Sensor ouputs a ```0``` if ```black``` is detected and outputs a ```1``` if ```white``` is detected. <br/> <br/>
+      L   C   R   Action<br/>
+      0   1   0   Forward<br/>
+      0   0   1   Turn Right<br/>
+      1   0   0   Turn Left<br/>
+      1   1   0   Hard Left<br/> 
+      0   1   1   Hard Right<br/> 
+      1   1   1   Stop<br/><br/>
+
       Connect the sensor pins to the Raspberry Pi as follows: <br/>
          VCC - 5V <br/>
          GND - GND <br/>
-         OUT - GPIO 17 (Pin 11) <br/>
-         OUT2 - GPIO 27 (Pin 13) <br/>
-         OUT3 - GPIO 22 (Pin 15) <br/>
+         LEFT IR: OUT - GPIO 17 (Pin 11) <br/>
+         CENTRE IR: OUT - GPIO 27 (Pin 13) <br/>
+         RIGHT IR: OUT - GPIO 22 (Pin 15) <br/>
    
   Run the python script ```ir.py``` to check the sensor.
    ```
@@ -92,7 +118,8 @@ The ```cv2``` and ```numpy``` modules should be imported into Python without any
    ```
 
 5. Raspberry Pi Camera Module rev1.3:
-      Connect the camera module to the CSI Port of the Raspberry Pi.
+   NOTE: If using a USB Webcam, connect it to the USB Port and skip this step.
+   Connect the camera module to the CSI Port of the Raspberry Pi.
    ```
    ls /dev/video*
    ```
@@ -105,13 +132,11 @@ The ```cv2``` and ```numpy``` modules should be imported into Python without any
    ```
    python3 picam.py
    ```
-   Running this script should open the live camera feed from the Raspberry Pi Camera.
+   Running this script should open the live camera feed from the Raspberry Pi Camera. 
 
-6. ```YOLOv4-tiny``` Model:
+7. ```YOLOv4-tiny``` Model:
       Ensure that ```yolov4-tiny.cfg```, ```yolov4-tiny.weights``` and ```coco.names``` are in the same folder as all the scripts.
    ```
    python3 model.py
    ```
    This script enables person detection using the ```YOLOv4-tiny``` model on the live feed of the Raspberry Pi Camera.
-   
-   
