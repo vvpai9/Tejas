@@ -120,9 +120,9 @@ This ensures that the power supply to the Raspberry Pi is not throttled down dur
    python3 motor.py
    ```
 
-5. Raspberry Pi Camera Module rev1.3:
-   NOTE: If using a USB Webcam, connect it to the USB Port and skip this step.
-   Connect the camera module to the CSI Port of the Raspberry Pi.
+5. Raspberry Pi Camera Module rev1.3:<br/>
+   NOTE: If using a USB Webcam, connect it to the USB Port and skip this step and directly run ```cam.py``` script.<br/>
+   Connect the camera module to the CSI Port of the Raspberry Pi.<br/>
    ```
    ls /dev/video*
    ```
@@ -133,9 +133,9 @@ This ensures that the power supply to the Raspberry Pi is not throttled down dur
    This command should show ```supported = 1 detected = 1```
 
    ```
-   python3 picam.py
+   python3 cam.py
    ```
-   Running this script should open the live camera feed from the Raspberry Pi Camera. 
+   Running this script should open the live camera feed from the Camera. 
 
 7. ```YOLOv4-tiny``` Model:
       Ensure that ```yolov4-tiny.cfg```, ```yolov4-tiny.weights``` and ```coco.names``` are in the same folder as all the scripts.
